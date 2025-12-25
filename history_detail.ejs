@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="UTF-8"><title><%= item.event %></title></head>
+<body>
+    <h1><%= item.event %> (<%= item.year %>年)</h1>
+    <p>人物: <%= item.person %></p>
+    <p>内容: <%= item.desc %></p>
+    <hr>
+    <form action="/history/update/<%= item.id %>" method="POST">
+        出来事: <input type="text" name="event" value="<%= item.event %>"><br>
+        年: <input type="number" name="year" value="<%= item.year %>"><br>
+        人物: <input type="text" name="person" value="<%= item.person %>"><br>
+        概要: <input type="text" name="desc" value="<%= item.desc %>"><br>
+        <button type="submit">更新</button>
+    </form>
+    <br><a href="/history">一覧へ</a> | <a href="/">トップへ</a>
+</body>
+</html>

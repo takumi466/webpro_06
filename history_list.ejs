@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="UTF-8"><title>日本史一覧</title></head>
+<body>
+    <h1>日本史出来事一覧</h1>
+    <table border="1">
+        <tr><th>年</th><th>出来事</th><th>操作</th></tr>
+        <% data.forEach(item => { %>
+            <tr>
+                <td><%= item.year %>年</td>
+                <td><a href="/history/<%= item.id %>"><%= item.event %></a></td>
+                <td><a href="/history/delete/<%= item.id %>">削除</a></td>
+            </tr>
+        <% }) %>
+    </table>
+    <hr>
+    <form action="/history" method="POST">
+        出来事: <input type="text" name="event" required>
+        年: <input type="number" name="year">
+        人物: <input type="text" name="person">
+        概要: <input type="text" name="desc">
+        <button type="submit">追加</button>
+    </form>
+    <br><a href="/">トップに戻る</a>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="UTF-8"><title>映画一覧</title></head>
+<body>
+    <h1>名作映画一覧</h1>
+    <table border="1">
+        <tr><th>タイトル</th><th>監督</th><th>操作</th></tr>
+        <% data.forEach(item => { %>
+            <tr>
+                <td><a href="/movies/<%= item.id %>"><%= item.title %></a></td>
+                <td><%= item.director %></td>
+                <td><a href="/movies/delete/<%= item.id %>">削除</a></td>
+            </tr>
+        <% }) %>
+    </table>
+    <hr>
+    <form action="/movies" method="POST">
+        題名: <input type="text" name="title" required>
+        監督: <input type="text" name="director">
+        年: <input type="number" name="year">
+        ジャンル: <input type="text" name="genre">
+        <button type="submit">追加</button>
+    </form>
+    <br><a href="/">トップに戻る</a>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="UTF-8"><title><%= item.name %> 詳細</title></head>
+<body>
+    <h1>選手詳細：<%= item.name %></h1>
+    <p>所属: <%= item.team %> / ポジション: <%= item.pos %></p>
+    <p>打率: <%= item.avg %> / 本塁打: <%= item.hr %>本</p>
+    <hr>
+    <h3>情報を編集する</h3>
+    <form action="/baseball/update/<%= item.id %>" method="POST">
+        氏名: <input type="text" name="name" value="<%= item.name %>"><br>
+        球団: <input type="text" name="team" value="<%= item.team %>"><br>
+        守備: <input type="text" name="pos" value="<%= item.pos %>"><br>
+        打率: <input type="text" name="avg" value="<%= item.avg %>"><br>
+        本塁打: <input type="number" name="hr" value="<%= item.hr %>"><br>
+        <button type="submit">更新を保存</button>
+    </form>
+    <br><a href="/baseball">一覧に戻る</a> | <a href="/">トップページへ戻る</a>
+</body>
+</html>

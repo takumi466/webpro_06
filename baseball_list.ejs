@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head><meta charset="UTF-8"><title>選手一覧</title></head>
+<body>
+    <h1>プロ野球選手一覧</h1>
+    <table border="1">
+        <tr><th>名前</th><th>所属球団</th><th>操作</th></tr>
+        <% data.forEach(item => { %>
+            <tr>
+                <td><a href="/baseball/<%= item.id %>"><%= item.name %></a></td>
+                <td><%= item.team %></td>
+                <td><a href="/baseball/delete/<%= item.id %>">削除</a></td>
+            </tr>
+        <% }) %>
+    </table>
+    <hr>
+    <h3>新規選手登録</h3>
+    <form action="/baseball/add" method="POST">
+        氏名: <input type="text" name="name" required><br>
+        球団: <input type="text" name="team" required><br>
+        守備: <input type="text" name="pos"><br>
+        打率: <input type="text" name="avg" step="0.001"><br>
+        本塁打: <input type="number" name="hr"><br>
+        <button type="submit">登録</button>
+    </form>
+    <br><a href="/">トップページへ戻る</a>
+</body>
+</html>
